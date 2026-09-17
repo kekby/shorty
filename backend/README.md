@@ -9,6 +9,18 @@ Node.js, Express, PostgreSQL
 ## Запуск локально
 
 ```bash
+make backend
+```
+
+Пользователя для входа создать отдельно:
+
+```bash
+make seed EMAIL=you@example.com PASSWORD=yourpassword
+```
+
+Либо вручную, шаг за шагом:
+
+```bash
 cp .env.example .env
 docker compose -f ../docker-compose.yml up -d postgres
 npm install

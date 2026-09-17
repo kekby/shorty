@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getLinks, shortLinkUrl } from "@/lib/api";
 import type { LinkWithClicks } from "@/lib/model";
-import { clearUserId, getUserId } from "@/lib/auth";
+import { getUserId } from "@/lib/auth";
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -21,11 +21,6 @@ export default function DashboardPage() {
       .then(setLinks)
       .catch((err) => setError(err instanceof Error ? err.message : "Something went wrong"));
   }, [router]);
-
-  function handleLogout() {
-    clearUserId();
-    router.push("/login");
-  }
 
   if (error) {
     return (
@@ -45,15 +40,7 @@ export default function DashboardPage() {
 
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-6 px-6 py-16">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold">Мои ссылки</h1>
-        <button
-          onClick={handleLogout}
-          className="rounded-md border border-zinc-300 px-4 py-1.5 text-sm dark:border-zinc-700"
-        >
-          Выйти
-        </button>
-      </div>
+      <h1 className="text-2xl font-semibold">Мои ссылки</h1>
 
       {links.length === 0 && <p className="text-zinc-500">Пока нет ссылок.</p>}
 
