@@ -27,8 +27,7 @@ npm run dev              # порт 3000
 
 ## Деплой
 
-- Frontend: [URL после деплоя на Vercel]
-- Backend: [URL после деплоя на Render]
+- Frontend: https://frontend-flame-one-63.vercel.app/
 
 ## Структура репозитория
 
